@@ -1,0 +1,14 @@
+---
+import TextLink from "@components/TextLink.astro";
+import { resolvePath } from "@lib/utils";
+
+type Props = {
+  small?: boolean;
+};
+
+const { small } = Astro.props;
+---
+
+<div style={small ? "font-size: 0.875rem" : ""}>
+  <p>Enjoy!</p>
+</div>
