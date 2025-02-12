@@ -1,13 +1,6 @@
----
-import TextLink from "@components/TextLink.astro";
-import { resolvePath } from "@lib/utils";
-
-type Props = {
-  small?: boolean;
-};
-
-const { small } = Astro.props;
----
+<h1 class="animate text-3xl font-semibold text-black dark:text-white">
+嗨! 我是 zooeywm
+</h1>
 
 <div style={small ? "font-size: 0.875rem" : ""}>
   <p>一名对新鲜事物永远怀有热情的咸鱼程序员~</p>
