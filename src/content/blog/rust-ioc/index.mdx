@@ -2,6 +2,7 @@
 title: "Rust IOC 容器搭建"
 description: "利用 Rust 语言特性，纯静态零消耗的 IOC 容器"
 date: "2024-03-26"
+lastUpdateDate: "2025-02-12"
 tags:
   - rust
 ---
@@ -23,7 +24,12 @@ pub trait FooService {
 }
 ```
 
-声明结构体 `FooServiceState` 并实现 `FooService`，使用 [dep-inj](https://crates.io/crates/dep-inj) 库。以下是宏展开后的等效代码：
+声明结构体 `FooServiceState` 并实现 `FooService`，使用
+[dep-inj](https://crates.io/crates/dep-inj) 库。
+
+<details>
+<summary>以下是宏展开后的等效代码：</summary>
+<div>
 
 ````rust
 // path/to/service/foo_service.rs:
@@ -155,10 +161,18 @@ impl<__Deps__> FooServiceImpl<__Deps__> {
 }
 ````
 
+</div>
+
+</details>
+
 ### 第二步：编写容器（Container）
 
 容器用于持有所有状态，并在 boilerplate 中通过宏生成的 inj 方法为容器实现所有 trait。  
 使用 derive_more::AsRef 为容器添加 `AsRef<FooService>` 能力，可以在 &Contaner 使用 inj_ref 之后，使用 FooService 的方法：
+
+<details>
+<summary>代码：</summary>
+<div>
 
 ```rust
 // path/to/container.rs
@@ -201,10 +215,17 @@ impl BarService for Container {
 }
 ```
 
+</div>
+</details>
+
 ### 第三步：实现依赖其他服务的结构体
 
 然后，我们编写 `Barservice`，他依赖于 `Fooservice`。  
 `dep_inj_target` 宏用于在无字段结构体上生成 `dep_inj`。
+
+<details>
+<summary>代码：</summary>
+<div>
 
 ```rust
 // path/to/bar_service.rs
@@ -227,9 +248,16 @@ where
 
 ```
 
+</div>
+</details>
+
 ### 最终调用示例
 
 最终，我们可以通过 Entry 去调用 `BarServiceImpl` 中的 `bar_foo` 方法，在 `bar_foor` 中，又调用了 `FooServiceImpl` 的 `foo_bar` 方法！
+
+<details>
+<summary>代码：</summary>
+<div>
 
 ```rust
 // .../entry.rs
@@ -252,6 +280,9 @@ impl Entry {
     }
 }
 ```
+
+</div>
+</details>
 
 ### 核心机制总结
 
