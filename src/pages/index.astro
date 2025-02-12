@@ -10,6 +10,7 @@ import type { CollectionEntry } from "astro:content";
 import { getFilteredCollectionEntries, resolvePath } from "@lib/utils";
 import Bio from "../components/Bio.astro";
 import Contact from "@components/Contact.astro";
+import Giscus from "@components/Giscus.astro";
 
 async function getCollectionEntries<T extends CollectionName>(
   collectionName: T,
@@ -41,15 +42,12 @@ const talks = await getCollectionEntries("talks", HOME.talkEntries ?? 0);
         />
       </div>
       <h1 class="animate text-3xl font-semibold text-black dark:text-white">
-        Hi, I'm {GLOBAL.author}
+        嗨! 我是  {GLOBAL.author}
       </h1>
       <div class="space-y-16">
         <section>
           <article class="animate space-y-4">
             <Bio />
-            <h2 class="font-semibold text-black dark:text-white">
-              Contact me:
-            </h2>
             <Contact />
           </article>
         </section>
@@ -59,9 +57,9 @@ const talks = await getCollectionEntries("talks", HOME.talkEntries ?? 0);
             <section class="animate space-y-6">
               <div class="flex flex-wrap items-center justify-between gap-y-2">
                 <h2 class="font-semibold text-black dark:text-white">
-                  Recent blog posts
+                  最近博客:
                 </h2>
-                <TextLink href="blog">all blog posts </TextLink>
+                <TextLink href="blog">全部博客 </TextLink>
               </div>
               <ul class="not-prose flex flex-col gap-4">
                 {blog.map((post) => (
@@ -79,9 +77,9 @@ const talks = await getCollectionEntries("talks", HOME.talkEntries ?? 0);
             <section class="animate space-y-6">
               <div class="flex flex-wrap items-center justify-between gap-y-2">
                 <h2 class="font-semibold text-black dark:text-white">
-                  Recent talks
+                  最近杂谈:
                 </h2>
-                <TextLink href="talks">all talks </TextLink>
+                <TextLink href="talks">全部杂谈 </TextLink>
               </div>
               <ul class="not-prose flex flex-col gap-4">
                 {talks.map((talk) => (
@@ -98,9 +96,9 @@ const talks = await getCollectionEntries("talks", HOME.talkEntries ?? 0);
             <section class="animate space-y-6">
               <div class="flex flex-wrap items-center justify-between gap-y-2">
                 <h2 class="font-semibold text-black dark:text-white">
-                  Recent projects
+                  最近项目:
                 </h2>
-                <TextLink href="projects">all projects </TextLink>
+                <TextLink href="projects">全部项目 </TextLink>
               </div>
               <ul class="not-prose flex flex-col gap-4">
                 {projects.map((project) => (
@@ -114,5 +112,9 @@ const talks = await getCollectionEntries("talks", HOME.talkEntries ?? 0);
         }
       </div>
     </aside>
+
+    <div class="mt-8">
+      <Giscus />
+    </div>
   </Container>
 </Layout>

@@ -4,6 +4,7 @@ import Container from "@components/Container.astro";
 import { getFilteredCollectionEntries, resolvePath } from "@lib/utils";
 import BackToPrevious from "@components/BackToPrevious.astro";
 import TableOfContents from "@components/TableOfContents.astro";
+import Giscus from "@components/Giscus.astro";
 import EntryHeader from "@components/EntryHeader.astro";
 
 export async function getStaticPaths() {
@@ -26,7 +27,7 @@ const { Content, headings } = await entry.render();
   <Container>
     <div class="animate">
       <BackToPrevious href={resolvePath("/projects", Astro.url.pathname)}
-        >All projects</BackToPrevious
+        >全部项目</BackToPrevious
       >
     </div>
 
@@ -35,6 +36,9 @@ const { Content, headings } = await entry.render();
     <article class="animate">
       <hr />
       <Content />
+      <div class="mt-8">
+        <Giscus />
+      </div>
     </article>
   </Container>
 </Layout>

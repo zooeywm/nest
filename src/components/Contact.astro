@@ -1,22 +1,32 @@
 ---
 import { CONTACT } from "@consts";
+import { resolvePath } from "@lib/utils";
 
 type Props = {
-    small?: boolean;
+  small?: boolean;
 };
 
 const { small } = Astro.props;
 ---
 
-<p class="mb-0" style={small ? "font-size: 0.875rem" : ""}>
-    {
-        CONTACT.map((c, index) => (
-            <>
-                <a href={c.href} target="_blank">
-                    {c.displayAs ?? c.type}
-                </a>
-                <span class="mx-2">{index < CONTACT.length - 1 && " | "}</span>
-            </>
-        ))
-    }
+<p class="mb-0 flex items-center" style={small ? "font-size: 0.875rem" : ""}>
+  {
+    CONTACT.map((c, index) => (
+      <>
+        <a href={c.href} target="_blank" class="flex items-center">
+          {(c.logo && (
+            <img
+              id="logo"
+              src={resolvePath(c.logo, Astro.url.pathname)}
+              alt={c.displayAs}
+              style="max-width: 20px; max-height: 20px;"
+            />
+          )) || <div class="font-semibold">{c.type}</div>}
+        </a>
+        {index < CONTACT.length - 1 && (
+          <span class="mx-2">|</span>
+        )}
+      </>
+    ))
+  }
 </p>

@@ -15,7 +15,7 @@ export function readingTime(html: string) {
   const textOnly = html.replace(/<[^>]+>/g, "");
   const wordCount = textOnly.split(/\s+/).length;
   const readingTimeMinutes = (wordCount / 200 + 1).toFixed();
-  return `${readingTimeMinutes} min read`;
+  return `阅读时间： ${readingTimeMinutes} 分钟`;
 }
 
 export function sortByLastUpdateDate<T extends CollectionName>(
@@ -90,7 +90,7 @@ export function formatDateWithLastUpdateDate(date: Date, lastUpdateDate?: Date):
 
   if (lastUpdateDate) {
     const formattedLastUpdateDate = lastUpdateDate.toISOString().substring(0, 10);
-    return `${formattedDate} (updated: ${formattedLastUpdateDate})`;
+    return `${formattedDate} (最后更新于: ${formattedLastUpdateDate})`;
   }
   return formattedDate;
 }

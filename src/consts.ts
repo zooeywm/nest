@@ -12,13 +12,13 @@ export type GlobalSite = {
 };
 
 export const GLOBAL: GlobalSite = {
-  title: "zooeywm's blog",
-  description: "zooeywm's blog",
+  title: "zooeywm 的小窝",
+  description: "zooeywm 的小窝",
   author: "zooeywm",
   authorPhotoSrc: "/zooeywm.png",
   logo: {
-    darkThemeSrc: "/logo/logo_dark.png",
-    lightThemeSrc: "/logo/logo_light.png",
+    darkThemeSrc: "/logo/dark.svg",
+    lightThemeSrc: "/logo/light.svg",
   },
 };
 
@@ -69,6 +69,7 @@ type ContactInfo = {
   type: string;
   href: string;
   displayAs?: string;
+  logo?: string;
 };
 
 type ContactSite = ContactInfo[];
@@ -77,10 +78,13 @@ export const CONTACT: ContactSite = [
   {
     type: "Email",
     href: "mailto:zooeywm@gmail.com",
-    displayAs: " mail",
+    displayAs: "Gmail",
+    logo: "/logo/gmail.svg",
   },
   {
-    type: " Github",
+    type: "Github",
     href: "https://github.com/zooeywm",
+    displayAs: "Github",
+    logo: "/logo/github.svg",
   },
 ];
