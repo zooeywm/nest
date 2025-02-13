@@ -2,6 +2,7 @@
 title: "rclone 配置"
 description: "rclone 配置"
 date: "2024-04-14"
+lastUpdateDate: "2025-02-13"
 tags:
   - linux
   - file-manage
@@ -20,8 +21,6 @@ tags:
 参照：<https://rclone.org/webdav>，使用 sharepoint 和 webdav，请注意，需要对密码进行加密。
 
 ## 用法
-
-Having used `Mount`, `Sync`, `Copy`, and `BiSync` modes, I finally choose to use `BiSync` at most chances. Because the `Mount` is based on FUSE, which is erased every time the front or daemon was killed, which is not what I want. `Copy` cannot delete files. `Sync` is a one-way operation. So I choose the two-way operation `BiSync`.
 
 在使用了 `Mount`，`Sync`，`Copy` 以及 `BiSync` 模式之后，我最终选择了使用 `BiSync` 模式，因为 `Mount` 是基于 `FUSE` 的，当其守护进程结束之后，本地数据都会被抹除。`Copy` 模式不能删除远程文件。`Sync` 是单向操作，所以我选择了双向操作的 `BiSync`
 
