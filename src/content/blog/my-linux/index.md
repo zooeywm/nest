@@ -12,7 +12,9 @@ tags:
 
 ## 安装指引
 
-安装文档里有详细介绍，这里不再赘述：<https://wiki.archlinux.org/title/installation_guide>
+安装文档里有详细介绍，这里不再赘述：https://wiki.archlinux.org/title/installation_guide
+
+可参照我一个朋友的安装步骤, 比较适合新手: [Arch 安装.md](https://github.com/TD-Sky/notebook/blob/main/Arch/%E5%AE%89%E8%A3%85.md)
 
 磁盘分为两个分区：一个2G [uefi](https://wiki.archlinux.org/title/Unified_Extensible_Firmware_Interface)
 
@@ -21,5 +23,5 @@ tags:
 ## 系统管理
 
 1. 经常运行 `systemctl --failed` 并且修复。
-2. tty 字体太小的话 - <https://wiki.archlinux.org/title/HiDPI#Linux_console_(tty)>
+2. tty 字体太小的话 - https://wiki.archlinux.org/title/HiDPI#Linux_console_(tty)
 3. 配置：见我的 [dotfiles](https://github.com/zooeywm/dotfiles)
