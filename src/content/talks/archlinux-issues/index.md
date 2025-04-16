@@ -2,7 +2,7 @@
 title: "Arch Linux 问题及解决方法"
 description: "日常遇到过的 Arch Linux 问题及解决方法"
 date: "2025-02-12"
-lastUpdateDate: "2025-04-08"
+lastUpdateDate: "2025-04-16"
 tags:
   - linux
 ---
@@ -61,3 +61,7 @@ bluetooth hci0: Direct firmware load for mediatek/BT_RAM_CODE_MT7961_1a_2_hdr.bi
 
 原因是 53 端口被占用，dnsmasq 监听了 0.0.0.0:53
 解决方式：修改 /etc/dnsmasq.conf，设置 `listen-address=127.0.0.1` 以及 `bind-interfaces` 然后 sudo systemctl restart dnsmasq 即可
+
+## nvim markdown-preview 无响应
+
+https://github.com/iamcco/markdown-preview.nvim/issues/424#issuecomment-1033083561
