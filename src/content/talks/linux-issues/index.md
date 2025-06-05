@@ -9,6 +9,8 @@ tags:
 
 ## 5.4.18 内核 缺少 usbip
 
+> https://github.com/dorssel/usbipd-win/issues/251
+
 ```bash
 sudo apt install linux-tools-5.4.18-85-generic hwdata
 sudo update-alternatives --install /usr/local/bin/usbip usbip $(command -v ls /usr/lib/linux-tools/*/usbip | tail -n1) 20
