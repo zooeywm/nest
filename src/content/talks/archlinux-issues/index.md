@@ -65,3 +65,11 @@ bluetooth hci0: Direct firmware load for mediatek/BT_RAM_CODE_MT7961_1a_2_hdr.bi
 ## nvim markdown-preview 无响应
 
 https://github.com/iamcco/markdown-preview.nvim/issues/424#issuecomment-1033083561
+
+## nftables 打开防火墙
+
+编辑 `/etc/nftables.conf`
+
+添加 `tcp dport 3240 accept`
+
+并执行 `sudo nft -f /etc/nftables.conf`
