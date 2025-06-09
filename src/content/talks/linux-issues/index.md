@@ -17,7 +17,14 @@ sudo update-alternatives --install /usr/local/bin/usbip usbip $(command -v ls /u
 # usbipd 同理
 ```
 
-
 ## usbip 客户端 detach 有几率卡死，让这个设备无法被重定向
 
 不调用客户端的 detach，改为只调用服务端的 unbind 即可
+
+## 用户输错密码被锁定
+
+进入 root shell
+
+```shell
+faillock --user <用户名> --reset
+```
