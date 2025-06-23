@@ -2,7 +2,7 @@
 title: "Linux 问题及解决方法"
 description: "工作中遇到过的 Linux 问题及解决方法"
 date: "2025-06-05"
-lastUpdateDate: "2025-06-05"
+lastUpdateDate: "2025-06-24"
 tags:
   - linux
 ---
@@ -27,4 +27,13 @@ sudo update-alternatives --install /usr/local/bin/usbip usbip $(command -v ls /u
 
 ```shell
 faillock --user <用户名> --reset
+```
+
+## Ubuntu: openssl version mismatch built against 30000020 you have 30400000
+
+
+```shell
+sudo apt-get remove openssh-server openssh-client --purge -y
+sudo mv /etc/ld.so.cache /etc/ld.so.cache_bak
+sudo apt install openssh-server
 ```
