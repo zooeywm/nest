@@ -2,6 +2,7 @@
 title: "安卓内核模块编译"
 description: "编译过程记录"
 date: "2025-06-20"
+lastUpdateDate: "2025-07-18"
 tags:
   - android
 ---
@@ -18,11 +19,13 @@ import Callout from "@components/Callout.astro";
 
 ## 编译环境
 
-我的环境是 Arch Linux，存在两个问题，第一是我的系统是 x86_64，cpu 架构不匹配，第二是我的系统 Glibc 版本太高，即使交叉编译出来，android 11 上也够呛能用。
+~~我的环境是 Arch Linux，存在两个问题，第一是我的系统是 x86_64，cpu 架构不匹配，第二是我的系统 Glibc 版本太高，即使交叉编译出来，android 11 上也够呛能用。~~
 
-所以我的做法是复用了之前适配飞腾 e2000 时做的基于麒麟系统的文件根目录做的 systemd-nspawn 的虚拟机
+~~所以我的做法是复用了之前适配飞腾 e2000 时做的基于麒麟系统的文件根目录做的 systemd-nspawn 的虚拟机~~
 
-进入虚拟机后，参照官方 README 文档，先从 https://android.googlesource.com/kernel/msm/+/refs/tags/android-11.0.0_r0.116 下载了本次提交的 tgz 解压后，按照[Install]流程，将用户空间工具装好
+**更新：需要使用安卓 ndk 交叉编译工具链，因为安卓的 libc 是 bionic 而 linux 是 glibc,编译过程中遇到缺少的头文件和库需要自行使用 ndk 工具链编译**
+
+参照官方 README 文档，先从 https://android.googlesource.com/kernel/msm/+/refs/tags/android-11.0.0_r0.116 下载了本次提交的 tgz 解压后，按照[Install]流程，将用户空间工具装好
 
 然后编译 USB/IP 模块，需要进入到项目根目录，执行 make menuconfig，找到 USB/IP，使用空格将其改变为 \<M\>，
 
