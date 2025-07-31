@@ -41,3 +41,8 @@ sudo apt install openssh-server
 ## Usbip 走 tcp 转发手柄设备不能正常使用的问题
 
 经过排查，原因是手柄驱动源码里定义了 20ms 的 timeout，而我们写的 tcp 转发是默认有缓存的，要为转发客户端设置 NoDelay 选项。
+
+## vmware 桥接网络失灵
+
+sudo vmware-networks --stop
+sudo vmware-networks --start
