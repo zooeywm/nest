@@ -73,3 +73,9 @@ https://github.com/iamcco/markdown-preview.nvim/issues/424#issuecomment-10330835
 添加 `tcp dport 3240 accept`
 
 并执行 `sudo nft -f /etc/nftables.conf`
+
+## systemd-nspawn 容器突然提示某些目录找不到
+
+看看有没有 /proc/sys/fs/binfmt_misc/qemu-aarch64 这样的文件，如果没有，说明 qemu-user-static-binfmt 没有正确安装。
+
+重装一遍 sudo pacman -S qemu-user-static-binfmt
