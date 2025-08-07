@@ -44,5 +44,7 @@ sudo apt install openssh-server
 
 ## vmware 桥接网络失灵
 
+```shell
 sudo vmware-networks --stop
 sudo vmware-networks --start
+```
